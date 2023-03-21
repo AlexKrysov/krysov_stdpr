@@ -12,7 +12,7 @@ public class UploadData {
             uploadInput = $(".uploadInput.svelte-233l5r");
 
     public void uploadInputPage() {
-        step("Открыть страницу", () ->
+        step("Загружаем резюме", () ->
                 uploadInput.uploadFromClasspath("pdf/Krysov_QA_ENGINEER.pdf"));
     }
 }

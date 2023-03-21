@@ -33,7 +33,7 @@ public class NavigationPage {
     }
 
     public void clickAgreeCheckmark() {
-        step("Нажимаем на кнопку 'Откликнуться'", () -> {
+        step("Соглашаемся на обработку данных", () -> {
             agreeCheckmark.click();
         });
     }
