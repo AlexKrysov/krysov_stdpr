@@ -4,22 +4,15 @@ import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 
 
 public class JobsSectionTest extends TestBase {
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1920x1080";
-    }
-
     @DisplayName("Проверка заполнения формы с валидными данными")
     @Owner("Krysov")
+    @Tag("PositiveFormTest")
     @Test
     void checkForm() {
         openPage.openStdprPage();
@@ -37,6 +30,7 @@ public class JobsSectionTest extends TestBase {
 
     @DisplayName("Проверка заполнения формы с валидными, рандомными данными")
     @Owner("Krysov")
+    @Tag("PositiveFormTest")
     @Test
     void checkFormWithRandomData() {
         openPage.openStdprPage();
@@ -46,6 +40,57 @@ public class JobsSectionTest extends TestBase {
         randomData.setRandomName();
         randomData.setRandomPhone();
         randomData.setRandomCity();
+        randomData.setRandomTelegram();
+        navigationPage.clickAgreeCheckmark();
+        uploadData.uploadInputPage();
+        checkPage.checkForm();
+    }
+
+    @DisplayName("Проверка заполнения формы с пустым полем 'Имя'")
+    @Owner("Krysov")
+    @Tag("NegativeFormTest")
+    @Test
+    void checkFormWithoutName() {
+        openPage.openStdprPage();
+        navigationPage.openJobsSectionTesting();
+        navigationPage.openVacancyTesting();
+        navigationPage.clickJobApplyButton();
+        randomData.setRandomPhone();
+        randomData.setRandomCity();
+        randomData.setRandomTelegram();
+        navigationPage.clickAgreeCheckmark();
+        uploadData.uploadInputPage();
+        checkPage.checkForm();
+    }
+
+    @DisplayName("Проверка заполнения формы с пустым полем 'Номер телефона'")
+    @Owner("Krysov")
+    @Tag("NegativeFormTest")
+    @Test
+    void checkFormWithoutPhoneNumber() {
+        openPage.openStdprPage();
+        navigationPage.openJobsSectionTesting();
+        navigationPage.openVacancyTesting();
+        navigationPage.clickJobApplyButton();
+        randomData.setRandomName();
+        randomData.setRandomCity();
+        randomData.setRandomTelegram();
+        navigationPage.clickAgreeCheckmark();
+        uploadData.uploadInputPage();
+        checkPage.checkForm();
+    }
+
+    @DisplayName("Проверка заполнения формы с пустым полем 'город'")
+    @Owner("Krysov")
+    @Tag("NegativeFormTest")
+    @Test
+    void checkFormWithoutCity() {
+        openPage.openStdprPage();
+        navigationPage.openJobsSectionTesting();
+        navigationPage.openVacancyTesting();
+        navigationPage.clickJobApplyButton();
+        randomData.setRandomName();
+        randomData.setRandomPhone();
         randomData.setRandomTelegram();
         navigationPage.clickAgreeCheckmark();
         uploadData.uploadInputPage();
