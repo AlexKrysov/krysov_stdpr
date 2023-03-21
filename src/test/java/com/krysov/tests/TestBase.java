@@ -3,10 +3,8 @@ package com.krysov.tests;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.krysov.helpers.Attach;
-import com.krysov.pages.InputData;
-import com.krysov.pages.NavigationPage;
-import com.krysov.pages.OpenPage;
-import com.krysov.pages.UploadData;
+import com.krysov.pages.*;
+import com.krysov.randomData.RandomData;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,6 +17,8 @@ public class TestBase {
     InputData inputData = new InputData();
     OpenPage openPage = new OpenPage();
     UploadData uploadData = new UploadData();
+    CheckPage checkPage = new CheckPage();
+    RandomData randomData = new RandomData();
 
 //    @BeforeAll
 //    static void beforeAll() {

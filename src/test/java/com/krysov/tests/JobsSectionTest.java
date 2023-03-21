@@ -2,19 +2,15 @@ package com.krysov.tests;
 
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Owner;
-import org.aspectj.apache.bcel.classfile.Module;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 
-public class SearchTests extends TestBase {
+public class JobsSectionTest extends TestBase {
 
     @BeforeAll
     static void beforeAll() {
@@ -36,5 +32,23 @@ public class SearchTests extends TestBase {
         inputData.setTelegram();
         navigationPage.clickAgreeCheckmark();
         uploadData.uploadInputPage();
+        checkPage.checkForm();
+    }
+
+    @DisplayName("Проверка заполнения формы с валидными, рандомными данными")
+    @Owner("Krysov")
+    @Test
+    void checkFormWithRandomData() {
+        openPage.openStdprPage();
+        navigationPage.openJobsSectionTesting();
+        navigationPage.openVacancyTesting();
+        navigationPage.clickJobApplyButton();
+        randomData.setRandomName();
+        randomData.setRandomPhone();
+        randomData.setRandomCity();
+        randomData.setRandomTelegram();
+        navigationPage.clickAgreeCheckmark();
+        uploadData.uploadInputPage();
+        checkPage.checkForm();
     }
 }
