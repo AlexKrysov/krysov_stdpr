@@ -88,7 +88,7 @@
 
 :seven: ALLURE_NOTIFICATIONS_VERSION - (выбор версии allure)
 
-## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/krysov_Digital_Design_Tests/2/allure/">Allure report</a>
+## <img src="images/logo/Allure.svg" width="25" height="25"  alt="Allure"/></a> Отчет в <a target="_blank" href="https://jenkins.autotests.cloud/job/Krysov_Standard_Project/3/allure/">Allure report</a>
 
 ## ⛅: Overview
 <p align="center">
